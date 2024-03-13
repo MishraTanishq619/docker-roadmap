@@ -1,14 +1,17 @@
 services:
-    mongodb:
+    mongo_db:
         image: mongo:latest
         ports:
             - "27017:27017"
         volumes:
-            - mongodb-data:/data/db
-    custom_app:
-        build: ./
+            - volume_1:/data/db1
+
+    my_app2:
+        build: .
         ports:
             - "3000:3000"
+        # volumes:
+        #     - .:/usr/src/app
 
 volumes:
-    mongodb-data:
+    volume_1:
